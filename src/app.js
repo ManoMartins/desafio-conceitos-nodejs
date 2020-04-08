@@ -87,21 +87,21 @@ app.post("/repositories/:id/like", (request, response) => {
       .json({ error: 'Repository not found' })
   }
 
-  const { title, url, techs } = repositories[repositoryIndex];
-  let { likes } = repositories[repositoryIndex];
-  likes++;
+  // const { title, url, techs } = repositories[repositoryIndex];
+  // let { likes } = repositories[repositoryIndex];
+  // likes++;
 
-  const repository = {
-    id,
-    title,
-    url,
-    techs,
-    likes
-  }
+  // const repository = {
+  //   id,
+  //   title,
+  //   url,
+  //   techs,
+  //   likes
+  // }
 
-  repositories[repositoryIndex] = repository;
+  repositories[repositoryIndex].likes++;
 
-  return response.json(repository)
+  return response.json(repositories[repositoryIndex])
 });
 
 module.exports = app;
